@@ -45,7 +45,7 @@ DISABLE_AUTO_UPDATE="true"
 #ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -132,10 +132,11 @@ SPACESHIP_DIR_TRUNC="5"
 source ~/liquidprompt/liquidprompt
 LP_PS1_PREFIX="┏ "
 LP_PS1_POSTFIX=$'\n'"┗ "
-#LP_PS1_POSTFIX=$'\n'"┗➜  "
 
 ## Custom stuff
-function url { gnome-open http://$1 ; }
+url() {
+    gnome-open http://$1 ;
+}
 
 extract() {
     if [ -z ${1} ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
