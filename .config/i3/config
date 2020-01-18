@@ -1,0 +1,259 @@
+# Misc Variables
+# Mod key
+set $mod Mod4
+
+set $home /home/swango
+set $bin $home/bin
+set $center move absolute position center
+
+font pango:Source Code Pro 9
+
+# Apps
+set $browser	google-chrome-stable
+set $music  	pithos
+set $term   	tilix
+set $rdp	remmina
+
+# App Binds
+bindsym $mod+n       exec $browser
+bindsym $mod+Ctrl+n  exec rofi-search "$browser --new-window"
+bindsym $mod+Shift+n exec rofi-web    "$browser --new-window" 
+
+bindsym $mod+m       exec $music
+bindsym $mod+Ctrl+m  exec steam
+bindsym $mod+r exec $rdp
+
+bindsym $mod+o       exec rofi-now
+bindsym $mod+Ctrl+o  exec rofi-vol
+bindsym $mod+Shift+o exec rofi-bat
+
+bindsym $mod+Ctrl+Shift+b  exec feh --bg-scale /home/swango/.local/share/backgrounds -z
+
+bindmouse button1+Shift drag
+
+# Borders
+border_radius 5
+for_window [class="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 0
+
+# Gap Variables
+set $inner 10
+set $outer 5
+set $inner_big 30
+set $outer_big 5
+set $inner_tiny 5
+set $outer_tiny 2
+
+# Set Gaps
+gaps inner $inner
+gaps outer $outer
+
+# Toggle Gaps
+bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
+bindsym $mod+Ctrl+g gaps inner all set $inner_big; gaps outer all set $outer_big
+bindsym $mod+Shift+g gaps inner all set $inner_tiny; gaps outer all set $outer_tiny
+
+# Terminal
+bindsym $mod+Return exec $term 
+
+# Scratchpad
+bindsym $mod+Ctrl+BackSpace scratchpad show
+bindsym $mod+BackSpace floating enable, move position 48 px 48 px, move scratchpad
+
+# Kill
+bindsym $mod+x      kill
+# Power
+bindsym $mod+Ctrl+x exec rofi-power
+
+# Restart 
+bindsym $mod+Shift+Ctrl+r restart
+
+# Reload
+bindsym $mod+Ctrl+r reload
+
+# Layout
+bindsym $mod+w layout toggle split
+bindsym $mod+Ctrl+w layout stacked
+bindsym $mod+Shift+w layout tabbed
+title_align center
+
+# Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move
+bindsym $mod+Ctrl+Left move left
+bindsym $mod+Ctrl+Down move down
+bindsym $mod+Ctrl+Up move up
+bindsym $mod+Ctrl+Right move right
+
+# Resize
+# 10px
+bindsym $mod+Shift+Left       resize shrink width  10px or 10 ppt
+bindsym $mod+Shift+Down       resize shrink height 10px or 10 ppt
+bindsym $mod+Shift+Up         resize grow height   10px or 10 ppt
+bindsym $mod+Shift+Right      resize grow width    10px or 10 ppt
+
+# 1px
+bindsym $mod+Shift+Ctrl+Left  resize shrink width  1px or 1 ppt
+bindsym $mod+Shift+Ctrl+Down  resize shrink height 1px or 1 ppt
+bindsym $mod+Shift+Ctrl+Up    resize grow height   1px or 1 ppt
+bindsym $mod+Shift+Ctrl+Right resize grow width    1px or 1 ppt
+
+# Verticle Split
+bindsym $mod+v split v
+
+# Horizontal Split
+bindsym $mod+h split h
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Toggle Floating
+bindsym $mod+space floating toggle; $center
+
+# Floating Mouse Move
+floating_modifier $mod
+bindmouse button1+Shift drag
+
+# Center Floating
+bindsym $mod+c $center
+
+# Mode Toggle
+bindsym $mod+Shift+space focus mode_toggle
+
+# Paper Mode
+bindsym $mod+Ctrl+space floating toggle; resize set 700px 975px; $center
+
+# Workspaces
+set $ws1 "1: 1"
+set $ws2 "2: 2"
+set $ws3 "3: 3"
+set $ws4 "4: 4"
+set $ws5 "5: 5"
+set $ws6 "6: 6"
+set $ws7 "7: 7"
+set $ws8 "8: 8"
+set $ws9 "9: 9"
+set $ws10 "0: 10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move window to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+bindsym $mod+Ctrl+0 move container to workspace $ws10
+
+# Tools
+
+# Hide / Show Polybar
+bindsym $mod+t exec polybar-msg -p `ps -ef | grep polybar | grep top | grep -v xdo | awk '{ print $2 }'` cmd toggle
+bindsym $mod+Ctrl+t exec polybar-msg -p `ps -ef | grep polybar | grep bottom | grep -v xdo | awk '{ print $2 }'` cmd toggle
+
+# Screenshot
+set $shots ~/Pictures/screenshots
+
+bindsym $mod+Print exec maim --hidecursor $shots/$(date +%s).png
+bindsym $mod+Ctrl+Print exec maim -s $shots/$(date +%s).png
+bindsym $mod+Shift+Print exec --no-startup-id feh `ls -t $shots | head -1`
+
+# Screen recording
+set $recordings ~/Videos/recordings
+
+bindsym $mod+F12       exec ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0 -f alsa -ac 2 -i pulse $recordings/screen_recording.mp4
+bindsym $mod+Ctrl+F12  exec killall ffmpeg 
+
+# Media keys
+# Volume
+bindsym XF86AudioLowerVolume exec ~/.config/polybar/scripts/mixer-osd2 voldown
+bindsym XF86AudioRaiseVolume exec ~/.config/polybar/scripts/mixer-osd2 volup
+bindsym XF86AudioMute exec ~/.config/polybar/scripts/mixer-osd2 mute
+
+# Contol
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Brightness
+bindsym XF86MonBrightnessUp exec ~/.config/polybar/scripts/brightness-osd up
+bindsym XF86MonBrightnessDown exec ~/.config/polybar/scripts/brightness-osd down
+
+# Calculator
+bindsym XF86Calculator exec gnome-calculator
+
+# Rofi
+bindsym	$mod+a       exec rofi-appsmenu
+bindsym $mod+d       exec rofi -show run -display-window ">"
+bindsym $mod+Ctrl+d  exec rofi-dict
+#bindsym $mod+Shift+d exec
+
+# Floating Windows
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Wicd-client.py"] floating enable
+for_window [class="Blueberry.py"] floating enable
+for_window [class="ffplay"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="mupen64plus"] floating enable
+for_window [class="dolphin-emu"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+
+# Tabbed windows
+for_window [class="remmina"] layout tabbed
+
+# Stacked windows
+
+# Startup
+
+# Auto-start
+exec --no-startup-id polybar -r top
+exec --no-startup-id polybar -r bottom
+exec_always --no-startup-id killall compton; compton --blur-method kawase
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec --no-startup-id ~/bin/mount-google.drive.sh
+
+# Background
+exec_always feh --bg-scale /home/swango/.local/share/backgrounds -z
+
+# Reload
+exec_always xrdb --merge ~/.Xresoureces 
+exec_always sleep 5; ~/bin/xdo-start.sh
+#exec_always xrandr --auto --output eDP-1 --below HDMI-1 --auto
+
+# Colors
+# CLASS                 BORDER  		BACK    	TEXT    	  INDICATOR
+client.placeholder      $fg     		$bg     	$text     	  $bg 
+client.focused #664477 #664477 #cccccc #e7d8b1
+#client.focused_inactive #e7d8b1 #e7d8b1 #181715 #A074C4
+client.unfocused #222133 #222133 #AAAAAA #A074C4
+client.urgent #CE4045 #CE4045 #e7d8b1 #DCCD69
+# XRESOURCES
+set $fg 		 "#FFFFFF"
+set $bg			 "#444444"
+set $bg.focused		 "#222222"
+set $text		 "#000001"
+set $text.focused	 "#FF0000"
+set $border.focused	 "#0000FF"
+
+# CLASS                 BORDER  		BACK    	TEXT    	  INDICATOR
+client.placeholder      $fg     		$bg     	$text     	  $bg 
+
