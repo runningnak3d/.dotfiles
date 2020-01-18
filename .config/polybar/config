@@ -1,0 +1,659 @@
+
+[bar/top]
+radius=5
+;wm-restack = i3
+;override-redirect = true
+enable-ipc = true
+bottom = false
+width = 1905
+;fixed-center = true
+height = 25
+;border-top-size=10
+;offset-x = 15
+;offset-y = 5
+border-top-size = 5
+border-left-size = 15
+;border-bottom-size = -5
+border-color = #00000000
+
+background = #77000042
+; RED background = #77881111
+foreground = #FFF
+
+line-color = ${bar/bottom.background}
+line-size = 1
+
+;padding-left = 10
+;padding-right =10
+module-margin-left = 1
+module-margin-right = 1
+
+
+separator = |
+
+font-0 = Source Code Pro Medium:size=11;0
+font-4 = Material Icons:style=Regular:size=12;0
+font-2 = xos4 Terminus:style=Regualar:size=12;0
+font-7 = Siji:style=Regular:pixelsize=12;0
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;0
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;0
+font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;0
+font-6 = TerminessTTF Nerd Font:style=Bold:size=12;0
+font-8 = NotoEmoji Nerd Font:style=Bold:size=12;0
+font-9 = Noto Sans Egyptian Hieroglyphs,Noto Sans EgyptHiero:style=Regular:size=12;0
+font-10 = Symbola:style=Regular:size=12;0
+font-11 = Weather Icons:size=12;0
+
+
+modules-left = i3 
+modules-right = wired-network wireless-network wireless-network-icon bluetooth volume battery clock        
+
+;tray-position = right 
+;tray-scale = 1.0
+;tray-transparent = true
+;tray-background = ${self.background}
+;tray-maxsize = 64
+
+;tray-offset-y = 0
+
+;tray-detached = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+;cursor-click = pointer
+;cursor-scroll = ns-resize
+
+[bar/top2]
+radius = 5
+;override-redirect = true
+;wm-restack = i3
+monitor = DVI-I-1-1
+enable-ipc = true
+bottom = false
+width = 1905
+height = 25
+;border-top-size=10
+;offset-x = 10
+;offset-y = 10
+border-top-size = 5
+border-left-size = 15
+;border-bottom-size = -5
+border-color = #00000000
+
+
+; BLUE background = #77000042
+background = #77420000
+foreground = #FFF
+
+line-color = ${bar/bottom.background}
+line-size = 1
+
+;padding-left = 10
+;padding-right =10
+module-margin-left = 1
+module-margin-right = 1
+
+
+separator = |
+
+;font-0 = NotoSans-Regular:size=19;-1
+
+;font-0 = Misc\ Termsynu:size=19:antialias=false;3
+;font-0 = NotoSans-Regular:size=10;2
+;font-1 = Material\ Icons:size=10;0
+;font-2 = Misc\ Termsynu:size=10;-2
+;font-3 = FontAwesome:size=9;0
+
+;font-0 = Source Code Pro Medium:size=10;0
+;font-4 = Material Icons:style=Regular:size=10;0
+;font-2 = xos4 Terminus:style=Regualar:size=10;0
+;font-7 = Siji:style=Regular:pixelsize=10;0
+;font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=10;0
+;font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=10;0
+;font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=10;0
+;font-6 = TerminessTTF Nerd Font:style=Bold:size=10;0
+;font-8 = NotoEmoji Nerd Font:style=Bold:size=10;0
+;font-9 = Noto Sans Egyptian Hieroglyphs,Noto Sans EgyptHiero:style=Regular:size=10;0
+
+font-0 = Source Code Pro Medium:size=11;0
+font-4 = Material Icons:style=Regular:size=12;0
+font-2 = xos4 Terminus:style=Regualar:size=12;0
+font-7 = Siji:style=Regular:pixelsize=12;0
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;0
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;0
+font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;0
+font-6 = TerminessTTF Nerd Font:style=Bold:size=12;0
+font-8 = NotoEmoji Nerd Font:style=Bold:size=12;0
+font-9 = Noto Sans Egyptian Hieroglyphs,Noto Sans EgyptHiero:style=Regular:size=12;0
+font-10 = Symbola:style=Regular:size=12;0
+font-11 = Weather Icons:size=12;0
+
+;font-0 = Source Code Pro Medium:size=10;0
+;font-1 = Material Icons:size=10;2
+;font-2 = Terminux (TTF):size=10;0
+;font-3 = Siji:pixelsize=11;1
+;font-4 = Font Awesome 5 Free Solid:size=12;0
+
+
+modules-left = i3 
+modules-right = wired-network wireless-network wireless-network-icon cpu memory temperature filesystem volume battery clock        
+
+;wm-restack = i3
+
+;tray-position = right 
+;tray-scale = 1.0
+;tray-transparent = true
+;tray-background = ${self.background}
+;tray-maxsize = 64
+
+;tray-offset-y = 0
+
+;tray-detached = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+;cursor-click = pointer
+;cursor-scroll = ns-resize
+
+[bar/bottom]
+radius = 5
+;wm-restack = i3
+;override-redirect = true
+separator = |
+enable-ipc = true
+bottom = true
+width = 1905
+;offset-x = 5%
+;offset-y = .5%
+border-bottom-size = 5
+border-left-size = 15
+height = 25
+;dpi = 192
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 2
+
+spacing = 2
+padding-right = 2
+module-margin-left = 2 
+module-margin-right = 2
+
+;font-0 = NotoSans-Regular:size=11;0
+font-0 = NotoSans-Regular:size=11;0
+font-1 = Material\ Icons:size=11;2
+font-2 = xos4\ Terminus:size=14;0
+font-3 = Siji:pixelsize=10;1
+font-4 = FontAwesome:size=11;0
+font-5 = Material Icons:style=Regular:size=12;0
+font-6 = Weather Icons:size=12;0
+
+modules-left = vu-l currentlyplaying
+modules-right = cpu memory filesystem temperature weather powermenu
+;modules-center = vu-l vu-l
+
+[module/vu-l]
+type = custom/script
+tail = true
+
+label = %output% 
+format = <label>
+
+exec = ~/dev/pb_vu-meter/vu.py -l
+;exec = ~/dev/vu-meter/vu_meter.py
+
+[module/vu-r]
+type = custom/script
+tail = true
+
+label = %output%
+format = <label>
+
+exec = ~/dev/pb_vu-meter/vu.py -r
+
+[module/bluetooth]
+type = custom/script
+exec = /home/swango/.config/polybar/scripts/bluetooth.sh
+interval = 2
+click-left = exec blueberry
+click-right = sudo /home/swango/.config/polybar/scripts/toggle_bluetooth.sh
+format-padding = 1
+;format-background = #000000
+format-foreground = #ffffff
+
+[module/weather]
+type = custom/script
+;exec = ~/bin/polybar-forecast
+exec = ~/bin/forecast.sh
+interval = 600
+label = %output%
+format = <label>
+;format-font = 6
+format-foreground = #ffffff
+
+[module/battery]
+type = internal/battery
+full-at = 100
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%%
+ramp-capacity-0 = 🔋
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 🔋
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 🔋
+ramp-capacity-3 = 🔋
+ramp-capacity-4 = 🔋
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 4
+bar-capacity-empty = █
+bar-capacity-empty-font = 4
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = 
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
+
+[module/date]
+type = internal/date
+date =    %%{F#99}%d-%m-%Y%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> [<bar-used>]
+;format = <label>
+;label = RAM
+label =  %gb_used%/%gb_free%
+
+bar-used-width = 10
+;bar-used-foreground-0 = #aaff77
+;bar-used-foreground-1 = #aaff77
+;bar-used-foreground-2 = #fba922
+;bar-used-foreground-3 = #ff5555
+bar-used-foreground-0 = #77ff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator =  
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+;bar-used-fill = ─
+bar-used-fill = ▇
+bar-used-fill-font = 6
+bar-used-empty = - 
+bar-used-empty-font = 6
+bar-used-empty-foreground = #FFFFFF
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+interval = 1.0
+ping-interval = 10
+label-connected-minlen = 60
+label-connected-maxlen = 60
+
+format-connected = <label-connected>
+label-connected = %{A1:/home/swango/bin/wicd-gtk.sh:}%upspeed% %downspeed%%{A}
+;label-disconnected =    not connected
+label-disconnected-foreground = #66
+;label-font = 3
+
+[module/wireless-network-icon]
+type = internal/network
+interface = wlp3s0
+interval = 1.0
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %{A1:/home/swango/bin/wicd-gtk.sh:}%essid%%{A}
+label-disconnected =  
+label-disconnected-foreground = #66
+;label-font = 3
+ramp-font = 9
+
+;ramp-signal-0 = 
+ramp-signal-0 = o
+;ramp-signal-1 = 
+ramp-signal-1 = o
+;ramp-signal-2 = 
+ramp-signal-2 = 𓂸
+ramp-signal-2-foreground = #fff
+;ramp-signal-3 = 
+ramp-signal-3 = o
+;ramp-signal-4 = 
+ramp-signal-4 = o
+
+;ramp-signal-foreground = ${colors.foreground}
+
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/wired-network]
+type = internal/network
+interface = enp0s20f0u6u4
+
+interval = 3
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected =  %local_ip%
+label-connected-forground = #FFFFFF
+label-disconnected-forground = #FFFFFF
+label-disconnected =  %if_name%
+
+[module/volume]
+type = internal/alsa
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+;headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+label-volume  = %{A3:/home/swango/bin/pavol.sh:}%percentage%% %{A}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+
+label-mounted =  %mountpoint% %free% 
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = #66
+label-mounted-seperator =
+
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 2
+
+label-open = 
+label-close = X 
+;label-close =  
+label-separator = |
+
+menu-0-0 = Logout
+menu-0-0-foreground = #fba922
+menu-0-0-exec = i3-msg exit
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu-open-2
+menu-0-3 = "Optimus"
+menu-0-3-foreground = #fba922
+menu-0-3-exec = menu-open-3
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = nVidia
+menu-3-0-foreground = #fba922
+menu-3-0-exec = optimus-manager --switch nvidia --no-confirm
+menu-3-1 = Intel
+menu-3-1-foreground = #fba922
+menu-3-1-exec = optimus-manager --switch intel --no-confirm
+menu-3-2 = Current
+menu-3-2-foreground = #fba922
+menu-3-2-exec = optimus-manager --status |grep Current| aosd_cat --fore-color=blue --font="bitstream bold 60" -p 7 --x-offset=-1000 --y-offset=-505 --transparency=1 -u 1500 -o 0
+menu-3-3 = Cancel
+menu-3-3-foreground = #fba922
+menu-3-3-exec = menu-open-0
+
+[module/clock]
+type = custom/script
+exec = /usr/bin/date '+%T %Y-%m-%d'
+interval = 2
+label = 🕓 %output%
+click-left = /usr/bin/gsimplecal
+label-margin-right = 2
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+base-temperature = 40
+warn-temperature = 85
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #f00
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 =  
+ramp-foreground = #FFF
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+ws-icon-0 = 0;Ⅹ
+ws-icon-1 = 1;Ⅰ
+ws-icon-2 = 2;Ⅱ
+ws-icon-3 = 3;Ⅲ
+ws-icon-4 = 4;Ⅳ
+ws-icon-5 = 5;Ⅴ
+ws-icon-6 = 6;Ⅵ
+ws-icon-7 = 7;Ⅶ
+ws-icon-8 = 8;Ⅷ
+ws-icon-9 = 9;Ⅸ
+ws-icon-default = ♟
+ws-icon-font = 10
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+;label-mode-background = #e60053
+;label-mode-background = #e000F3
+label-mode-background = #FF00FF
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %icon%
+label-focused-foreground = #ffffff
+label-focused-background = #00003f
+label-focused-underline = #0000FF
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+;label-visible = %index%
+label-visible = %icon%
+label-visible-underline = #FFFFFF
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 3
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #999999
+
+[module/spotify]
+type = custom/script
+interval = 5
+format-prefix = "  "  
+format = <label>
+exec = /home/nicomazz97/.config/polybar/spotify.py
+format-underline = #1db954
+
+[module/currentlyplaying]
+type = custom/script
+interval = 1
+;exec = /home/swango/bin/currentlyplaying.sh
+exec = /home/swango/bin/mpris.py -s Pithos
+format = <label>
+label = %output%
+label-separator = +
+label-separator-padding = 2
+
+
+;format-underline = #1db954
+
+; vim:ft=dosini

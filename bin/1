@@ -1,0 +1,75 @@
+#!/bin/bash
+#================================================================================
+### mixer-osd
+## Modified from the work of jelloir and slapfish on the CrunchBang
+## Linux Forums.
+#================================================================================
+
+# Some user-defined values
+MIXERNAME="Master" # The name of the amixer master device
+GRANULARITY=32 # The approximate number of possible volume positions allowed
+FONTSIZE=80 # The size of font used by the OSD display
+OSDCOLOR_NORM=purple # Non-muted color
+OSDCOLOR_MUTE=red # Muted color
+# Fontsize often needs to change when granularity changes
+
+# Pull the numerical limit from the Mixer
+LIMIT=$(amixer get $MIXERNAME | grep "Limits" | awk '{print $5}')
+
+# Set volume increment based on granularity
+let VOLINC=LIMIT/GRANULARITY
+let VOLMOD=LIMIT%GRANULARITY
+let THRESHOLD=GRANULARITY/2
+if [ $VOLMOD -gt $THRESHOLD ]; then
+   let VOLINC=VOLINC+1
+fi
+
+# Command line handler
+case $1 in
+
+   volup) (brightnessctl s $VOLINC+) ;;
+
+   voldown) (amixer set $MIXERNAME $VOLINC-) ;;
+
+   mute) (amixer set $MIXERNAME toggle) ;;
+
+   *) 
+      echo "Usage: $0 { volup | voldown | mute }"
+      exit
+      ;;
+
+esac
+
+# Detect mute status and set OSD color
+MUTESTATUS=$(amixer get $MIXERNAME | grep "Left:" | awk '{print $6}' | tr -d '[]')
+
+if [ $MUTESTATUS == "off" ]; then
+   OSDCOLOR=$OSDCOLOR_MUTE; else
+   OSDCOLOR=$OSDCOLOR_NORM
+fi
+
+
+# Create the "I" bar based on mixer setting and granularity
+VOLSET=$(amixer get $MIXERNAME | grep "Left:" | awk '{print $4}')
+
+let VOLCOUNTER=VOLSET/$VOLINC
+if [ $VOLCOUNTER -gt $GRANULARITY ]; then
+   VOLCOUNTER=$GRANULARITY
+fi
+
+OSDI=""
+
+while [ $VOLCOUNTER -gt 0 ]
+do
+   OSDI=`echo $OSDI"I"`
+   let VOLCOUNTER=VOLCOUNTER-1
+done    
+
+# Clean up any running aosd_cat processes
+killall aosd_cat &> /dev/null
+
+# Display the "I" bar
+echo "$OSDI" | aosd_cat -n "Arial Black $FONTSIZE" -u 100 -o 6000 -R $OSDCOLOR -S none -f 0 -y -10
+
+
+# END

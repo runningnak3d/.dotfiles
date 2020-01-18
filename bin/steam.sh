@@ -1,0 +1,2 @@
+cd ~/.steam
+./steam.sh

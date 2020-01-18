@@ -1,0 +1,63 @@
+#!/bin/bash
+#================================================================================
+### mixer-osd
+## Modified from the work of jelloir and slapfish on the CrunchBang
+## Linux Forums.
+#================================================================================
+
+# Some user-defined values
+GRANULARITY=32 # The approximate number of possible volume positions allowed
+FONTSIZE=80 # The size of font used by the OSD display
+OSDCOLOR=blue # Non-muted color
+# Fontsize often needs to change when granularity changes
+
+# Get max brightness
+LIMIT=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+
+# Set volume increment based on granularity
+let INC=LIMIT/GRANULARITY
+let MOD=LIMIT%GRANULARITY
+let THRESHOLD=GRANULARITY/2
+if [ $MOD -gt $THRESHOLD ]; then
+   let INC=INC+1
+fi
+
+# Command line handler
+case $1 in
+
+   up) (brightnessctl s $INC+) ;;
+
+   down) (brightnessctl s $INC-) ;;
+
+   *) 
+      echo "Usage: $0 { up | down }"
+      exit
+      ;;
+
+esac
+
+
+# Create the "I" bar based on mixer setting and granularity
+BRSET=$(brightnessctl | grep Current | awk '{print $3}')
+
+let BRCOUNTER=BRSET/$INC
+if [ $BRCOUNTER -gt $GRANULARITY ]; then
+   BRCOUNTER=$GRANULARITY
+fi
+
+OSDI=""
+
+while [ $BRCOUNTER -gt 0 ]
+do
+   OSDI=`echo $OSDI"I"`
+   let BRCOUNTER=BRCOUNTER-1
+done    
+
+# Clean up any running aosd_cat processes
+killall aosd_cat &> /dev/null
+
+# Display the "I" bar
+echo "BRI: $OSDI" | aosd_cat -n "Arial Black $FONTSIZE" -u 100 -o 6000 -R $OSDCOLOR -S none -f 0 -y -10 -t 1
+
+
+# END
