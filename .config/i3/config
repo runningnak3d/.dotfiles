@@ -1,4 +1,3 @@
-# Misc Variables
 # Mod key
 set $mod Mod4
 
@@ -15,21 +14,13 @@ set $term   	tilix
 set $rdp	remmina
 
 # App Binds
-bindsym $mod+n       exec $browser
-bindsym $mod+Ctrl+n  exec rofi-search "$browser --new-window"
-bindsym $mod+Shift+n exec rofi-web    "$browser --new-window" 
-
-bindsym $mod+m       exec $music
-bindsym $mod+Ctrl+m  exec steam
-bindsym $mod+r exec $rdp
-
-bindsym $mod+o       exec rofi-now
-bindsym $mod+Ctrl+o  exec rofi-vol
-bindsym $mod+Shift+o exec rofi-bat
+bindsym $mod+n             exec $browser
+bindsym $mod+m             exec $music
+bindsym $mod+Ctrl+m        exec steam
+bindsym $mod+r             exec $rdp
+bindsym $mod+e             exec VirtualBox
 
 bindsym $mod+Ctrl+Shift+b  exec feh --bg-scale /home/swango/.local/share/backgrounds -z
-
-bindmouse button1+Shift drag
 
 # Borders
 border_radius 5
@@ -230,6 +221,7 @@ exec --no-startup-id polybar -r bottom
 exec_always --no-startup-id killall compton; compton --blur-method kawase
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id ~/bin/mount-google.drive.sh
+exec --no-startup-id i3altlayout
 
 # Background
 exec_always feh --bg-scale /home/swango/.local/share/backgrounds -z
