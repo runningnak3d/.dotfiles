@@ -237,8 +237,10 @@ if __name__ == "__main__":
                 artist = artists.popleft()
                 while len(artists) > 0:
                     artist = artist + ', ' + artists.popleft()
-            print("%s: \"%s\" by %s %s"
-                  % (status, title, artist, len_str))
+            #print("%s: \"%s\" by %s %s"
+            #      % (status, title, artist, len_str))
+            print("\"%s\" by %s %s"
+                  % (title, artist, len_str))
         else:
             print(status)
 
