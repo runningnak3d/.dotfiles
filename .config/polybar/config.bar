@@ -1,0 +1,26 @@
+include-file = ~/.config/polybar/fonts
+radius = 5
+enable-ipc = true
+width = 1905
+height = 25
+border-color = #00000000
+
+background = #77000042
+foreground = #FFF
+
+line-color = ${bar/bottom.background}
+line-size = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+padding-left = 1
+padding-right = 1
+
+separator = |
+sepatator-foreground = #77999999
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}

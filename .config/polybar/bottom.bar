@@ -1,0 +1,6 @@
+include-file = ~/.config/polybar/config.bar
+modules-left = vu-l currentlyplaying
+modules-right = archupdates cpu memory filesystem temperature weather powermenu
+bottom = true
+border-bottom-size = 5
+border-left-size = 15

@@ -1,0 +1,5 @@
+include-file = ~/.config/polybar/config.bar
+modules-left = i3
+modules-right = wired-network wireless-network wireless-network-icon bluetooth volume battery clock
+border-top-size = 5
+border-left-size = 15
