@@ -233,6 +233,7 @@ label-close = X
 label-separator = |
 label-separator-foreground = #00AAAAAA
 
+menu-minlen = 60
 menu-0-0 = Logout
 menu-0-0-foreground = #fba922
 menu-0-0-exec = i3-msg exit
@@ -441,6 +442,8 @@ format = <label>
 label = %output%
 label-separator = |
 label-separator-padding = 2
+;label-minlen = 60
+;label-maxlen = 40
 
 [module/archupdates]
 type = custom/script
