@@ -1,3 +1,34 @@
+[module/uptime]
+type = custom/script
+interval = 60
+label = %output%
+format = <label>
+format-foreground = #fffffff
+exec = ~/bin/uptime.sh
+
+[module/tiling-indicator]
+type = custom/script
+interval = 1
+label = %output%
+format = <label>
+format-font = 2
+format-foreground = #ffffff
+exec = /home/swango/bin/tile-indicator.py
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+enable-scroll = true
+format = <ramp>
+format-font = 6
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+
 [module/vu-l]
 type = custom/script
 tail = true
@@ -183,7 +214,7 @@ animation-packetloss-framerate = 500
 
 [module/wired-network]
 type = internal/network
-interface = enp0s20f0u6u4
+interface = enp0s20f0u2u4
 
 interval = 3
 

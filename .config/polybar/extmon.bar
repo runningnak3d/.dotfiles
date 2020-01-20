@@ -1,4 +1,6 @@
 include-file = ~/.config/polybar/config.bar
-modules-left = i3
-modules-right = wired-network wireless-network wireless-network-icon cpu memory temperature filesystem volume battery clock
+modules-left = i3 tiling-indicator
+modules-right = uptime backlight clock
 monitor = DVI-I-1-1
+border-top-size = 5
+border-left-size = 15

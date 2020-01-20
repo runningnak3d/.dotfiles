@@ -53,8 +53,9 @@ bindsym $mod+BackSpace floating enable, move position 48 px 48 px, move scratchp
 
 # Kill
 bindsym $mod+x      kill
+
 # Power
-bindsym $mod+Ctrl+x exec rofi-power
+bindsym $mod+Ctrl+x exec ~/.config/polybar/scripts/pmenu_g
 
 # Restart 
 bindsym $mod+Shift+Ctrl+r restart
@@ -155,6 +156,11 @@ bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
 
 # Tools
+
+# Cycle windows
+bindsym $mod+Tab exec --no-startup-id ~/bin/i3-container-commander.py
+bindsym Mod1+Tab exec --no-startup-id ~/bin/focus-next-visible.py
+bindsym Mod1+Shift+Tab --no-startup-id ~/bin/focus-next-visible.py reverse
 
 # Hide / Show Polybar
 bindsym $mod+t exec polybar-msg -p `ps -ef | grep polybar | grep top | grep -v xdo | awk '{ print $2 }'` cmd toggle
