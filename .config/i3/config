@@ -119,28 +119,28 @@ bindsym $mod+Shift+space focus mode_toggle
 bindsym $mod+Ctrl+space floating toggle; resize set 700px 975px; $center
 
 # Workspaces
-set $ws1 "1: 1"
-set $ws2 "2: 2"
-set $ws3 "3: 3"
-set $ws4 "4: 4"
-set $ws5 "5: 5"
-set $ws6 "6: 6"
-set $ws7 "7: 7"
-set $ws8 "8: 8"
-set $ws9 "9: 9"
-set $ws10 "0: 10"
+#set $ws1 "1: 1"
+#set $ws2 "2: 2"
+#set $ws3 "3: 3"
+#set $ws4 "4: 4"
+#set $ws5 "5: 5"
+#set $ws6 "6: 6"
+#set $ws7 "7: 7"
+#set $ws8 "8: 8"
+#set $ws9 "9: 9"
+#set $ws10 "0: 10"
 
 # Switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace mumber 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 0
 
 # Move window to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -206,7 +206,8 @@ for_window [class="ffplay"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="mupen64plus"] floating enable
 for_window [class="dolphin-emu"] floating enable
-for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gnome-calculator"] floating enable, move position 48px 35px
+for_window [class="Wicd-client.py"] move position 1100px 35px
 
 # Tabbed windows
 for_window [class="remmina"] layout tabbed
@@ -219,12 +220,15 @@ for_window [class="remmina"] layout tabbed
 exec --no-startup-id polybar -r top
 exec --no-startup-id polybar -r bottom
 exec_always --no-startup-id killall compton; compton --blur-method kawase
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+#exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec --no-startup-id dunst
 exec --no-startup-id ~/bin/mount-google.drive.sh
-exec --no-startup-id i3altlayout
+exec_always --no-startup-id /home/swango/.local/bin/i3altlayout
+#exec --no-startup-id i3wsr --icons awesome --no-names --config ~/.config/i3/icons.toml
 
 # Background
-exec_always feh --bg-scale /home/swango/.local/share/backgrounds -z
+#exec --no-startup-id feh --bg-scale /home/swango/.local/share/backgrounds -z
+exec --no-startup-id nitrogen --restore
 
 # Reload
 exec_always xrdb --merge ~/.Xresoureces 
