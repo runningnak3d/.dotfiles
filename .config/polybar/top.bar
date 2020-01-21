@@ -1,5 +1,7 @@
 include-file = ~/.config/polybar/config.bar
-modules-left = i3 tiling-indicator
+modules-left = i3
+;modules-left = i3 tiling-indicator
+;modules-middle = lyrics
 modules-right = wired-network wireless-network wireless-network-icon bluetooth volume backlight battery clock
 border-top-size = 5
 border-left-size = 15

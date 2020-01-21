@@ -28,6 +28,13 @@ ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
 
+[module/lyrics]
+type = custom/script
+tail = true
+label = %output%
+format = <label>
+;exec = php ~/dev/MPRISLyrics/src/AryToNeX/MPRISLyrics/Loader.php -d linebyline | tail +2
+exec = cat /tmp/l.txt
 
 [module/vu-l]
 type = custom/script

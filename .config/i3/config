@@ -176,8 +176,8 @@ bindsym $mod+Shift+Print exec --no-startup-id feh `ls -t $shots | head -1`
 # Screen recording
 set $recordings ~/Videos/recordings
 
-bindsym $mod+F12       exec ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0 -f alsa -ac 2 -i pulse $recordings/screen_recording.mp4
-bindsym $mod+Ctrl+F12  exec killall ffmpeg 
+bindsym $mod+F12       exec --no-startup-id ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0 -f alsa -ac 2 -i pulse $recordings/screen_recording.mp4
+bindsym $mod+Ctrl+F12  exec --no-startup-id killall ffmpeg 
 
 # Media keys
 # Volume
@@ -226,19 +226,18 @@ for_window [class="remmina"] layout tabbed
 exec --no-startup-id polybar -r top
 exec --no-startup-id polybar -r bottom
 exec_always --no-startup-id killall compton; compton --blur-method kawase
-#exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/mount-google.drive.sh
 exec --no-startup-id /home/swango/.local/bin/i3altlayout
-#exec --no-startup-id i3wsr --icons awesome --no-names --config ~/.config/i3/icons.toml
+exec --no-startup-id synergys
 
 # Background
 #exec --no-startup-id feh --bg-scale /home/swango/.local/share/backgrounds -z
 exec --no-startup-id nitrogen --restore
 
 # Reload
-exec_always xrdb --merge ~/.Xresoureces 
-exec_always sleep 5; ~/bin/xdo-start.sh
+exec_always --no-startup-id xrdb --merge ~/.Xresoureces 
+exec_always --no-startup-id sleep 5; ~/bin/xdo-start.sh
 #exec_always xrandr --auto --output eDP-1 --below HDMI-1 --auto
 
 # Colors

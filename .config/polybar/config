@@ -7,3 +7,5 @@ include-file = ~/.config/polybar/bottom.bar
 include-file = ~/.config/polybar/extmon.bar
 [bar/extmon-bottom]
 include-file = ~/.config/polybar/extmon-bottom.bar
+[bar/test]
+include-file = ~/.config/polybar/test.bar

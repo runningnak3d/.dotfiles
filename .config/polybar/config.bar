@@ -5,6 +5,9 @@ width = 1905
 height = 25
 border-color = #00000000
 
+;override-redirect = true
+;wm-restack = i3
+
 background = #77000042
 foreground = #FFF
 
