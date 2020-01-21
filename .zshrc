@@ -104,38 +104,19 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+# Let's source some crap
 source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/pkgfile/command-not-found.zsh
-SPACESHIP_PROMPT_ORDER=(
-	user
-	host
-	exec_time
-	git
-	package
-	php
-	dir
-	jobs
-	exit_code
-	line_sep
-	battery
-	char
-)
-SPACESHIP_USER_SHOW="always"
-SPACESHIP_USER_SUFFIX=""
-SPACESHIP_HOST_SHOW="always"
-SPACESHIP_HOST_PREFIX="@"
-SPACESHIP_BATTERY_SHOW="always"
-SPACESHIP_BATTERY_SYMBOL_FULL="•"
-SPACESHIP_DIR_PREFIX="["
-SPACESHIP_DIR_SUFFIX="]"
-SPACESHIP_DIR_TRUNC="5"
 source ~/liquidprompt/liquidprompt
+source /usr/bin/aws_zsh_completer.sh
+
+# Liquidprompt
 LP_PS1_PREFIX="┏ "
 LP_PS1_POSTFIX=$'\n'"┗ "
 
 ## Custom stuff
 url() {
-    gnome-open http://$1 ;
+    links -g http://$1 ;
 }
 
 extract() {
@@ -166,10 +147,12 @@ extract() {
 }
 
 getnews () {
-     curl https://newsapi.org/v2/top-headlines -s -G -d sources=$1 -d apiKey=409a83ab553f44459b7fbdfec4ce4639 | jq -r '.articles[] | .title, .url, ""'
+    curl https://newsapi.org/v2/top-headlines -s -G -d sources=$1 -d \ 
+    apiKey=409a83ab553f44459b7fbdfec4ce4639 | jq -r '.articles[] | .title, .url, ""'
 }
 
-weather() { curl -4 -s "http://wttr.in/Pinellas%20Park,FL" | head -n -1;
+weather() {
+    curl -4 -s "http://wttr.in/Pinellas%20Park,FL" | head -n -1;
 }
 
 export username=runningnak3d
@@ -179,15 +162,18 @@ export target=#lglaf
 #export server="localhost 55555"
 export ircserver="irc.freenode.net 6667"
 
-function my_irc { tmp=`mktemp`; cat > $tmp; { echo -e "USER $username x x :$ircname\nNICK $nick\nJOIN $target"; while read line; do echo -e "PRIVMSG $target :$line"; done < $tmp; } | nc $ircserver > /dev/null ; rm $tmp; }
+my_irc() {
+    tmp=`mktemp`; cat > $tmp; { echo -e "USER $username x x    \
+    :$ircname\nNICK $nick\nJOIN $target"; while read line; do  \
+    echo -e "PRIVMSG $target :$line"; done < $tmp; } | nc      \
+    $ircserver > /dev/null ; rm $tmp;
+}
 
 echo ""
 echo ""
 fortune | cowsay | lolcat
 echo ""
 echo ""
-
-source /usr/bin/aws_zsh_completer.sh
 
 # AWS stuff
 asp swango
