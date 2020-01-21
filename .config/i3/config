@@ -129,7 +129,7 @@ set $ws6 "6: 6"
 set $ws7 "7: 7"
 set $ws8 "8: 8"
 set $ws9 "9: 9"
-set $ws10 "0: 10"
+set $ws10 "10: 10"
 
 # Switch to workspace
 bindsym $mod+1 workspace 1
@@ -154,6 +154,21 @@ bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
+
+# Configure multi-monitor workspaces
+set $disp1 HDMI-1
+set $disp2 DVI-I-1-1
+
+workspace 1 output $disp1
+workspace 2 output $disp1
+workspace 3 output $disp1
+workspace 4 output $disp1
+workspace 5 output $disp1
+workspace 6 output $disp2
+workspace 7 output $disp2
+workspace 8 output $disp2
+workspace 9 output $disp2
+workspace 10 output $disp2
 
 # Tools
 

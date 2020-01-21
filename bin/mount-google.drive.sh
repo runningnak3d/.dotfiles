@@ -1,1 +1,2 @@
-google-drive-ocamlfuse ~/google-drive
+sleep 5
+google-drive-ocamlfuse /home/swango/google-drive
