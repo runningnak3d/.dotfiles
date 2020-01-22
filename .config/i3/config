@@ -60,6 +60,9 @@ bindsym $mod+Ctrl+x exec ~/.config/polybar/scripts/pmenu_g
 # Restart 
 bindsym $mod+Shift+Ctrl+r restart
 
+# Lock
+bindsym $mod+l exec ~/.config/polybar/scripts/i3lock.sh
+
 # Reload
 bindsym $mod+Ctrl+r reload
 
