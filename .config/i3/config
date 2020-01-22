@@ -155,6 +155,16 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
 
+# Move workspace to workspace
+bindsym $mod+Ctrl+Shift+1 move workspace to workspace 1
+bindsym $mod+Ctrl+Shift+2 move workspace to workspace 2
+bindsym $mod+Ctrl+Shift+3 move workspace to workspace number 3
+
+bindsym $mod+Ctrl+Alt+Shift+Left move workspace to output left
+bindsym $mod+Ctrl+Alt+Shift+Right move workspace to output right
+bindsym $mod+z move workspace to output left
+
+
 # Configure multi-monitor workspaces
 set $disp1 HDMI-1
 set $disp2 DVI-I-1-1

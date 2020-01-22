@@ -284,6 +284,13 @@ menu-0-2-exec = menu-open-2
 menu-0-3 = "Optimus"
 menu-0-3-foreground = #fba922
 menu-0-3-exec = menu-open-3
+menu-0-4 = Lock
+menu-0-4-foreground = #fba922
+menu-0-4-exec = i3lock
+menu-0-5 = Sleep
+menu-0-5-foreground = #fba922
+menu-0-5-exec = systemctl suspend
+
 
 menu-1-0 = Cancel
 menu-1-0-foreground = #fba922
