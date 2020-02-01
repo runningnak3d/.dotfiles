@@ -39,7 +39,7 @@ verifcolor=ffffffff
 timecolor=ffffffff
 datecolor=ffffffff
 loginbox=00000066
-locktext='Type password to unlock'
+locktext=''
 font='Iosevka'
 
 i3lock -i $tmpbg_edited \

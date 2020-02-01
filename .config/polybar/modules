@@ -1,9 +1,27 @@
+[module/gradient]
+type = custom/text
+content = %{F#888}█%{F#777}██%{F-}%{F#DDD}██%{F-}%{F#ddd}██%{F-}%{F#DDD}██%{F-}%{F#FFF}█%{F-}%{F#999}█%{F#555}██%{F-}%{F#999}██%{F-}%{F#333}██%{F-}%{F#999}██%{F-}%{F#550}█%{F-}%{F#666}█%{F#555}██%{F-}%{F#444}██%{F-}%{F#333}██%{F-}%{F#222}██%{F-}%{F#FFF}█%{F-}%{F#666}█%{F#555}██%{F-}%{F#444}██%{F-}%{F#333}██%{F-}%{F#222}██%{F-}%{F#DDD}█%{F-}%{F#666}█%{F#555}██%{F-}%{F#444}██%{F-}%{F#333}██%{F-}%{F#222}██%{F-}%{F#000}█%{F-}
+
+[module/fire]
+type = custom/script
+exec = ~/bin/pb-grad.sh
+;exec = cat ~/.config/polybar/fire.txt
+tail = true
+
+[module/blank]
+type = custom/text
+content = ""
+
+
+
+
 [module/uptime]
 type = custom/script
 interval = 60
 label = %output%
 format = <label>
-format-foreground = #fffffff
+content-foreground = #FF000000
+content-backcround = #FF000000
 exec = ~/bin/uptime.sh
 
 [module/tiling-indicator]
@@ -85,6 +103,7 @@ format-full = <ramp-capacity> <label-full>
 
 label-charging = %percentage%% %time%h
 label-discharging = %percentage%%
+label-full-margin = 4
 ramp-capacity-0 = 🔋
 ramp-capacity-0-foreground = #f53c3c
 ramp-capacity-1 = 🔋
@@ -175,12 +194,12 @@ type = internal/network
 interface = wlp3s0
 interval = 1.0
 ping-interval = 10
-label-connected-minlen = 60
-label-connected-maxlen = 60
+;label-connected-minlen = 60
+;label-connected-maxlen = 60
 
 format-connected = <label-connected>
 ;label-connected = %{A1:/home/swango/bin/wicd-gtk.sh:}%upspeed% %downspeed%%{A}
-label-connected = %{A1:wicd-gtk:}%upspeed% %downspeed%%{A}
+label-connected = %{A1:wicd-gtk.sh:} %upspeed%  %downspeed%%{A}
 ;label-disconnected =    not connected
 label-disconnected-foreground = #66
 ;label-font = 3
@@ -192,7 +211,7 @@ interval = 1.0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %{A1:wicd-gtk:}%essid%%{A}
+label-connected = %{A1:wicd-gtk.sh:}%essid%%{A}
 label-disconnected =  
 label-disconnected-foreground = #66
 ;label-font = 3
@@ -219,7 +238,20 @@ animation-packetloss-1 = 
 animation-packetloss-1-foreground = ${bar/top.foreground}
 animation-packetloss-framerate = 500
 
-[module/wired-network]
+[module/wired-network1]
+type = internal/network
+interface = enp0s20f0u6u4
+
+interval = 3
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected =  %local_ip%
+label-connected-forground = #FFFFFF
+label-disconnected-forground = #FFFFFF
+label-disconnected =  %if_name%
+
+[module/wired-network2]
 type = internal/network
 interface = enp0s20f0u2u4
 
@@ -320,9 +352,10 @@ menu-3-3-foreground = #fba922
 menu-3-3-exec = menu-open-0
 
 [module/clock]
+;◿ ◺ ◹  ◸   
 type = custom/script
-exec = /usr/bin/date '+%T %Y-%m-%d'
-interval = 2
+exec = /usr/bin/date '+%H:%M %A %m/%d'
+interval = 60
 label = 🕓 %output%
 click-left = /usr/bin/gsimplecal
 label-margin-right = 2
@@ -393,7 +426,6 @@ index-sort = true
 ; Default: false
 fuzzy-match = true
 
-ws-icon-0 = 0;Ⅹ
 ws-icon-1 = 1;Ⅰ
 ws-icon-2 = 2;Ⅱ
 ws-icon-3 = 3;Ⅲ
@@ -403,7 +435,8 @@ ws-icon-6 = 6;Ⅵ
 ws-icon-7 = 7;Ⅶ
 ws-icon-8 = 8;Ⅷ
 ws-icon-9 = 9;Ⅸ
-ws-icon-default = ♟
+ws-icon-0 = 10;Ⅹ
+;ws-icon-default = ♟
 ws-icon-font = 10
 
 label-dimmed-underline = ${root.background}
@@ -429,9 +462,9 @@ label-mode-background = #FF00FF
 ;   %output%
 ; Default: %icon%  %name%
 label-focused =  %icon%
-label-focused-foreground = #ffffff
-label-focused-background = #00003f
-label-focused-underline = #0000FF
+label-focused-foreground = #dddddd
+label-focused-background = #22777777
+label-focused-underline = #aaaaaa
 label-focused-padding = 2
 
 ; Available tokens:
@@ -440,6 +473,7 @@ label-focused-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
+label-unfocused-foreground = #dddddd
 label-unfocused = %icon%
 label-unfocused-padding = 2
 

@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
+zmodload zsh/zpty
+
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
@@ -68,7 +70,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws battery git command-not-found common-aliases sudo systemd)
+plugins=(zsh-autosuggestions aws battery git command-not-found common-aliases sudo systemd)
 
 
 # User configuration
@@ -104,11 +106,19 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+# xrdm Xresource database manager
+export XRDM_DIR=~/.Xresource.d
+export XRDM_FONT_DIR=$XRDM_DIR/fonts
+export XRDM_COLOR_DIR=$XRDM_DIR/colors
+export XRDM_PRESET_DIR=$XRDM_DIR/presets
+export XRDM_PROGRAM_DIR=$XRDM_DIR/programs
+
 # Let's source some crap
 source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/pkgfile/command-not-found.zsh
 source ~/liquidprompt/liquidprompt
 source /usr/bin/aws_zsh_completer.sh
+source ~/bin/xrdm
 
 # Liquidprompt
 LP_PS1_PREFIX="┏ "
@@ -171,7 +181,7 @@ my_irc() {
 
 echo ""
 echo ""
-fortune | cowsay | lolcat
+fortune | cowsay -f bud-frogs | lolcat
 echo ""
 echo ""
 

@@ -10,7 +10,7 @@ font pango:Source Code Pro 9
 # Apps
 set $browser	google-chrome-stable
 set $music  	pithos
-set $term   	tilix
+set $term   	kitty
 set $rdp	remmina
 
 # App Binds
@@ -35,12 +35,16 @@ set $outer_big 5
 set $inner_tiny 5
 set $outer_tiny 2
 
+set $extra 25
+
 # Set Gaps
 gaps inner $inner
 gaps outer $outer
+gaps bottom $extra
+gaps top $extra
 
 # Toggle Gaps
-bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
+bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer; gaps bottom all set $extra; gaps top all set $extra
 bindsym $mod+Ctrl+g gaps inner all set $inner_big; gaps outer all set $outer_big
 bindsym $mod+Shift+g gaps inner all set $inner_tiny; gaps outer all set $outer_tiny
 
@@ -109,6 +113,9 @@ bindsym $mod+f fullscreen toggle
 # Toggle Floating
 bindsym $mod+space floating toggle; $center
 
+# Sticky Toggle
+bindsym $mod+Shift+Ctrl+space sticky toggle
+
 # Floating Mouse Move
 floating_modifier $mod
 bindmouse button1+Shift drag
@@ -135,16 +142,16 @@ set $ws9 "9: 9"
 set $ws10 "10: 10"
 
 # Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 0
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # Move window to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -158,13 +165,7 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
 
-# Move workspace to workspace
-bindsym $mod+Ctrl+Shift+1 move workspace to workspace 1
-bindsym $mod+Ctrl+Shift+2 move workspace to workspace 2
-bindsym $mod+Ctrl+Shift+3 move workspace to workspace number 3
-
-bindsym $mod+Ctrl+Alt+Shift+Left move workspace to output left
-bindsym $mod+Ctrl+Alt+Shift+Right move workspace to output right
+# Move workspace to output
 bindsym $mod+z move workspace to output left
 
 
@@ -172,16 +173,16 @@ bindsym $mod+z move workspace to output left
 set $disp1 HDMI-1
 set $disp2 DVI-I-1-1
 
-workspace 1 output $disp1
-workspace 2 output $disp1
-workspace 3 output $disp1
-workspace 4 output $disp1
-workspace 5 output $disp1
-workspace 6 output $disp2
-workspace 7 output $disp2
-workspace 8 output $disp2
-workspace 9 output $disp2
-workspace 10 output $disp2
+workspace $ws1 output $disp1
+workspace $ws2 output $disp1
+workspace $ws3 output $disp1
+workspace $ws4 output $disp1
+workspace $ws5 output $disp1
+workspace $ws6 output $disp2
+workspace $ws7 output $disp2
+workspace $ws8 output $disp2
+workspace $ws9 output $disp2
+workspace $ws10 output $disp2
 
 # Tools
 
@@ -197,14 +198,14 @@ bindsym $mod+Ctrl+t exec polybar-msg -p `ps -ef | grep polybar | grep bottom | g
 # Screenshot
 set $shots ~/Pictures/screenshots
 
-bindsym $mod+Print exec maim --hidecursor $shots/$(date +%s).png
-bindsym $mod+Ctrl+Print exec maim -s $shots/$(date +%s).png
+bindsym $mod+Print exec maim --hidecursor $shots/$(date +%Y-%m-%d_%T).png
+bindsym $mod+Ctrl+Print exec maim -s $shots/$(date +%Y-%m-%d_%T).png
 bindsym $mod+Shift+Print exec --no-startup-id feh `ls -t $shots | head -1`
 
 # Screen recording
 set $recordings ~/Videos/recordings
 
-bindsym $mod+F12       exec --no-startup-id ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0 -f alsa -ac 2 -i pulse $recordings/screen_recording.mp4
+bindsym $mod+F12       exec --no-startup-id ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0 -f alsa -ac 2 -i pulse $recordings/$(date +%Y-%m-%d_%T).mp4
 bindsym $mod+Ctrl+F12  exec --no-startup-id killall ffmpeg 
 
 # Media keys
@@ -228,7 +229,7 @@ bindsym XF86Calculator exec gnome-calculator
 
 # Rofi
 bindsym	$mod+a       exec rofi-appsmenu
-bindsym $mod+d       exec rofi -show run -display-window ">"
+bindsym $mod+d       exec rofi -show drun
 bindsym $mod+Ctrl+d  exec rofi-dict
 #bindsym $mod+Shift+d exec
 
@@ -241,7 +242,6 @@ for_window [class="feh"] floating enable
 for_window [class="mupen64plus"] floating enable
 for_window [class="dolphin-emu"] floating enable
 for_window [class="Gnome-calculator"] floating enable, move position 48px 35px
-for_window [class="Wicd-client.py"] move position 1100px 35px
 
 # Tabbed windows
 for_window [class="remmina"] layout tabbed
@@ -251,8 +251,12 @@ for_window [class="remmina"] layout tabbed
 # Startup
 
 # Auto-start
-exec --no-startup-id polybar -r top
+exec --no-startup-id polybar -r top_l
+exec --no-startup-id polybar -r top_m
+exec --no-startup-id polybar -r top_r
+exec --no-startup-id polybar -r top_clear
 exec --no-startup-id polybar -r bottom
+exec --no-startup-id polybar -r bottom_clear
 exec_always --no-startup-id killall compton; compton --blur-method kawase
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/mount-google.drive.sh
@@ -264,7 +268,8 @@ exec --no-startup-id synergys
 exec --no-startup-id nitrogen --restore
 
 # Reload
-exec_always --no-startup-id xrdb --merge ~/.Xresoureces 
+#exec_always --no-startup-id xrdb -merge ~/.Xresources 
+exec_always --no-startup-id xrdm color leviathan
 exec_always --no-startup-id sleep 5; ~/bin/xdo-start.sh
 #exec_always xrandr --auto --output eDP-1 --below HDMI-1 --auto
 
