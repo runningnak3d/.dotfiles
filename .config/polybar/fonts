@@ -1,13 +1,12 @@
 font-0 = Source Code Pro Medium:size=11;0
-font-4 = Material Icons:style=Regular:size=12;0
-font-2 = xos4 Terminus:style=Regualar:size=12;0
-font-7 = Siji:style=Regular:pixelsize=12;0
 font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=12;0
-font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;0
+font-2 = xos4 Terminus:style=Regualar:size=12;0
 font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=12;0
+font-4 = Material Icons:style=Regular:size=12;0
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=12;0
 font-6 = TerminessTTF Nerd Font:style=Bold:size=12;0
+font-7 = Siji:style=Regular:pixelsize=12;0
 font-8 = NotoEmoji Nerd Font:style=Bold:size=12;0
 font-9 = Noto Sans Egyptian Hieroglyphs,Noto Sans EgyptHiero:style=Regular:size=12;0
 font-10 = Symbola:style=Regular:size=12;0
 font-11 = Weather Icons:size=12;0
-

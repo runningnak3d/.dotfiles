@@ -1,0 +1,8 @@
+include-file = ~/.config/polybar/config.bar
+modules-right = wired-network1 wired-network2 wireless-network wireless-network-icon bluetooth volume backlight battery
+width = 670
+offset-x = 1230
+offset-y = 5
+;background = #CC3B4251
+override-redirect = true
+wm-restack = i3

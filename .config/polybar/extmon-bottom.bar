@@ -1,0 +1,6 @@
+include-file = ~/.config/polybar/config.bar
+modules-module = lyrics
+modules-right =
+bottom = true
+border-bottom-size = 30
+border-left-size = 15

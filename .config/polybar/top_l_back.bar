@@ -1,0 +1,8 @@
+include-file = ~/.config/polybar/config.bar
+modules-left = fire
+width = 352
+offset-x = 30
+offset-y = 7
+background = #FFFFFFFF
+override-redirect = true
+wm-restack = i3

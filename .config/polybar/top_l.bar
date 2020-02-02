@@ -1,0 +1,11 @@
+include-file = ~/.config/polybar/config.bar
+modules-left = i3
+modules-right = tiling-indicator
+width = 402
+;width = 1920
+offset-x = 20
+offset-y = 5
+;background = #CC3B4251
+;background = #CC2A2825
+override-redirect = true
+wm-restack = i3
