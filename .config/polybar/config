@@ -1,16 +1,16 @@
 include-file = ~/.config/polybar/modules
 [bar/top_l]
 include-file = ~/.config/polybar/top_l.bar
-[bar/top_l_back]
-include-file = ~/.config/polybar/top_l_back.bar
+;[bar/top_l_back]
+;include-file = ~/.config/polybar/top_l_back.bar
 [bar/top_m]
 include-file = ~/.config/polybar/top_m.bar
-[bar/top_m_back]
-include-file = ~/.config/polybar/top_m_back.bar
+;[bar/top_m_back]
+;include-file = ~/.config/polybar/top_m_back.bar
 [bar/top_r]
 include-file = ~/.config/polybar/top_r.bar
-[bar/top_r_back]
-include-file = ~/.config/polybar/top_r_back.bar
+;[bar/top_r_back]
+;include-file = ~/.config/polybar/top_r_back.bar
 [bar/bottom]
 include-file = ~/.config/polybar/bottom.bar
 [bar/extmon]
