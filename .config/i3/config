@@ -242,6 +242,7 @@ for_window [class="feh"] floating enable
 for_window [class="mupen64plus"] floating enable
 for_window [class="dolphin-emu"] floating enable
 for_window [class="Gnome-calculator"] floating enable, move position 48px 35px
+for_window [class="Org.gnome.Weather"] floating enable, move position 48px 35px
 
 # Tabbed windows
 for_window [class="remmina"] layout tabbed
@@ -254,9 +255,7 @@ for_window [class="remmina"] layout tabbed
 exec --no-startup-id polybar -r top_l
 exec --no-startup-id polybar -r top_m
 exec --no-startup-id polybar -r top_r
-exec --no-startup-id polybar -r top_clear
 exec --no-startup-id polybar -r bottom
-exec --no-startup-id polybar -r bottom_clear
 exec_always --no-startup-id killall compton; compton --blur-method kawase
 exec --no-startup-id dunst
 exec --no-startup-id ~/bin/mount-google.drive.sh
@@ -273,21 +272,10 @@ exec_always --no-startup-id xrdm color leviathan
 exec_always --no-startup-id sleep 5; ~/bin/xdo-start.sh
 #exec_always xrandr --auto --output eDP-1 --below HDMI-1 --auto
 
-# Colors
-# CLASS                 BORDER  		BACK    	TEXT    	  INDICATOR
-client.placeholder      $fg     		$bg     	$text     	  $bg 
-client.focused #664477 #664477 #cccccc #e7d8b1
-#client.focused_inactive #e7d8b1 #e7d8b1 #181715 #A074C4
-client.unfocused #222133 #222133 #AAAAAA #A074C4
-client.urgent #CE4045 #CE4045 #e7d8b1 #DCCD69
-# XRESOURCES
-set $fg 		 "#FFFFFF"
-set $bg			 "#444444"
-set $bg.focused		 "#222222"
-set $text		 "#000001"
-set $text.focused	 "#FF0000"
-set $border.focused	 "#0000FF"
-
-# CLASS                 BORDER  		BACK    	TEXT    	  INDICATOR
-client.placeholder      $fg     		$bg     	$text     	  $bg 
+# Windows decoration colors
+# class                 border  backgr. text    indicator
+client.focused          #01579b #01579b #ffffff #c6ff00
+client.focused_inactive #81d4fa #81d4fa #BABABA #484e50
+client.unfocused        #1a237e #1a237e #000000 #292d2e
+client.urgent           #ff9800 #ff9800 #000000 #e53935
 
